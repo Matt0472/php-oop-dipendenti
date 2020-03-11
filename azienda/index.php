@@ -4,7 +4,7 @@
   require_once 'Amministrativo.php';
 
   try {
-    $dipendente_1 = new Dipendenti(1254545, 'nnnnnn','ggggggg');
+    $dipendente_1 = new Dipendenti(12345, 'nnnnnn','ggggggg');
   } catch (Exception $e) {
     echo 'Errore: ' . $e->getMessage();
   }

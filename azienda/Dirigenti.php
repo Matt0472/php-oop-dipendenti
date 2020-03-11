@@ -5,11 +5,24 @@
   class Dirigenti extends Dipendenti 
   {
     private $bonus;
-    public function __construct($_matricola, $_nome, $_cognome, $_indirizzo, $_cf, $_iban, $_mansioneId, $_orari, $_bonus)
+    private $investimenti;
+    
+    public function setBonus($_bonus)
     {
-      parent::__construct($_matricola, $_nome, $_cognome, $_indirizzo, $_cf, $_iban, $_mansioneId, $_orari);
-      $this->bonus = $_bonus;
+      if (!is_numeric($_bonus)) {
+        throw new Exception('Spiacente non hai inserito un numero');
+      } else {
+        $this->bonus = $_bonus;
+      }
+    }
+
+    public function getBonus()
+    {
+      return $this->bonus;
+    }
+
+    public function getStipendioBonus($_orario, $prezzoUnitario, $_bonus)
+    {
+      return $this->stipendio = ($_orario * $prezzoUnitario) + $_bonus;
     }
   }
-
-?>
